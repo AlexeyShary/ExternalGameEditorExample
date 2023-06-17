@@ -24,7 +24,8 @@ public class Character : MonoBehaviour
                 break;
             
             case "SCALE":
-                transform.localScale = new Vector3(transform.localScale.x * 2, transform.localScale.y * 2);
+                float scaleFactor = float.Parse(action.Split(" ")[1]);
+                transform.localScale = new Vector3(transform.localScale.x * scaleFactor, transform.localScale.y * scaleFactor);
                 break;
             
             case "HIDE":

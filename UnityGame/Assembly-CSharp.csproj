@@ -41,17 +41,17 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Sources\Database\DatabaseService.cs" />
-     <Compile Include="Assets\Sources\Database\Model\CharacterActionEntity.cs" />
-     <Compile Include="Assets\Sources\Database\Model\CharacterEntity.cs" />
-     <Compile Include="Assets\Sources\Database\Model\LocationObjectEntity.cs" />
-     <Compile Include="Assets\Sources\Database\DAO\CharacterActionDao.cs" />
-     <Compile Include="Assets\Sources\Database\DAO\CharacterDao.cs" />
-     <Compile Include="Assets\Sources\Database\DAO\LocationObjectDao.cs" />
-     <Compile Include="Assets\Sources\Database\DbCommandExtensionMethods.cs" />
      <Compile Include="Assets\Sources\LevelLoader.cs" />
      <Compile Include="Assets\Sources\CharacterFactory.cs" />
+     <Compile Include="Assets\Sources\Database\Model\CharacterActionEntity.cs" />
+     <Compile Include="Assets\Sources\Database\Model\LocationObjectEntity.cs" />
+     <Compile Include="Assets\Sources\Database\DAO\LocationObjectDao.cs" />
+     <Compile Include="Assets\Sources\Database\DbCommandExtensionMethods.cs" />
      <Compile Include="Assets\Sources\Character.cs" />
+     <Compile Include="Assets\Sources\Database\DAO\CharacterDao.cs" />
+     <Compile Include="Assets\Sources\Database\DatabaseService.cs" />
+     <Compile Include="Assets\Sources\Database\Model\CharacterEntity.cs" />
+     <Compile Include="Assets\Sources\Database\DAO\CharacterActionDao.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\Scenes" />
      <Folder Include="Assets\Resources\Characters" />
