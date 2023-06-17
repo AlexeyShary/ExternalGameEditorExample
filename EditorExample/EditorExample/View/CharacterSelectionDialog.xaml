@@ -1,0 +1,25 @@
+<Window x:Class="EditorExample.View.CharacterSelectionDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Character Selection" SizeToContent="WidthAndHeight"
+        Width="500" Height="500">
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <DataGrid Grid.Row="0" x:Name="CharactersDataGrid" ItemsSource="{Binding CharactersList}"
+                  AutoGenerateColumns="False" Width="500">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" IsReadOnly="True" Width="50" />
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="5">
+            <Button Content="OK" Click="OkButton_Click" Margin="5" />
+            <Button Content="Cancel" Click="CancelButton_Click" Margin="5" />
+        </StackPanel>
+    </Grid>
+</Window>

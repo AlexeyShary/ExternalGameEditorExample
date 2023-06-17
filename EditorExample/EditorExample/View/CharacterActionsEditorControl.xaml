@@ -1,0 +1,51 @@
+<UserControl x:Class="EditorExample.View.CharacterActionsEditorControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <Style x:Key="DataGridStyle" TargetType="DataGrid">
+            <Setter Property="ScrollViewer.CanContentScroll" Value="False" />
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+            <Setter Property="ScrollViewer.PanningMode" Value="Both" />
+            <Setter Property="ScrollViewer.PanningRatio" Value="0.5" />
+        </Style>
+        <Style x:Key="CenteredTextBlockStyle" TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+    </UserControl.Resources>
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <Label>Filter: </Label>
+            <TextBox Text="{Binding FilterText, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,5" Width="250" />
+        </StackPanel>
+
+        <DataGrid Grid.Row="1" Style="{StaticResource DataGridStyle}"
+                  ItemsSource="{Binding FilteredList}" SelectedItem="{Binding SelectedItem}"
+                  AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False"
+                  CellEditEnding="DataGrid_CellEditEnding">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" IsReadOnly="True" Width="50"
+                                    ElementStyle="{StaticResource CenteredTextBlockStyle}" />
+                <DataGridTextColumn Header="Char ID" Binding="{Binding CharacterId}" IsReadOnly="True" Width="50"
+                                    ElementStyle="{StaticResource CenteredTextBlockStyle}" />
+                <DataGridTextColumn Header="Action" Binding="{Binding Action}" Width="*"
+                                    ElementStyle="{StaticResource CenteredTextBlockStyle}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Add" Command="{Binding AddCommand}" Margin="5" />
+            <Button Content="Delete" Command="{Binding DeleteCommand}" Margin="5" IsEnabled="{Binding IsSelected}" />
+        </StackPanel>
+    </Grid>
+</UserControl>
